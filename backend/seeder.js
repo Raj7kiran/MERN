@@ -8,6 +8,7 @@ import Product from './models/productModel.js'
 import Order from './models/orderModel.js'
 import connectDB from './config/db.js'
 
+//seeder mongodb+srv://rajkiran:<password>@cluster0.afkox.mongodb.net/test
 dotenv.config()
 
 connectDB()
