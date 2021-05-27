@@ -17,7 +17,7 @@ const authUser = asyncHandler(async(req, res) => {
 		})
 	}else{
 		res.status(401)
-		throw new Error('Invalus username or password')
+		throw new Error('Invalid username or password')
 	}
 
 	res.send({email, password})
