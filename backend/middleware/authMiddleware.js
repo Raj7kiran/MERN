@@ -31,9 +31,16 @@ const protect = asyncHandler(async (req, res, next) => {
 	}
 
 })
-
-
 //FYI this protect can be used wherever we need authentication
 
-export { protect }
+const admin = (req, res, next) => {
+	if(req.user && req.user.isAdmin){
+		next()
+	} else {
+		res.status(401)
+		throw new Error('Not Authorized as Admin')
+	}
+}
+
+export { protect, admin }
 
