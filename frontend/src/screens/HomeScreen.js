@@ -8,7 +8,9 @@ import { listProducts } from '../actions/productActions'
 
 
 
-const HomeScreen = () => {
+const HomeScreen = ({ match }) => {
+	const keyword = match.params.keyword
+
 	const dispatch = useDispatch();
 
 	//selecting theproductsfrom state
@@ -17,8 +19,8 @@ const HomeScreen = () => {
 	const { loading, error, products } = productList
 
 	useEffect(() => {
-		dispatch(listProducts())
-	}, [dispatch] )//we give this here as we get a warning in console 
+		dispatch(listProducts(keyword))
+	}, [dispatch, keyword] )//we give this here as we get a warning in console 
 
 
 	return (
