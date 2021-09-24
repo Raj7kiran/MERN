@@ -1,6 +1,8 @@
 import express from 'express'
 const router = express.Router()
-import { getProducts, getProductById } from '../controllers/productController.js'
+import { getProducts, getProductById, deleteProduct, createProduct, updateProduct, createProductReview } from '../controllers/productController.js'
+import { protect, admin } from '../middleware/authMiddleware.js'
+
 
 
 
@@ -12,7 +14,10 @@ import { getProducts, getProductById } from '../controllers/productController.js
 // 	res.json(products);
 // })) 
 //after adding the controller
-router.route('/').get(getProducts);
+router.route('/').get(getProducts).post(protect, admin, createProduct)
+
+
+router.route('/:id/reviews').post(protect, createProductReview)
 
 
 //.@desc Fetch single product
@@ -30,7 +35,8 @@ router.route('/').get(getProducts);
 // 	}	
 // }))
 //after adding the controller
-router.route('/:id').get(getProductById); 
+router.route('/:id').get(getProductById).delete(protect, admin, deleteProduct).
+put(protect,admin, updateProduct)
 
 
 export default router
