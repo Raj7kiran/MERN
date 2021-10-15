@@ -52,7 +52,7 @@ const RegisterScreen = ({ location, history }) => {
 			<Form onSubmit ={submitHandler}>
 				<Form.Group controlId='name'>
 					<Form.Label>Name</Form.Label>
-						<Form.Control type= 'text'
+						<Form.Control type= 'name'
 										placeholder='Enter name'
 										value={name}
 										onChange = {(e)=> setName(e.target.value)}
@@ -71,7 +71,7 @@ const RegisterScreen = ({ location, history }) => {
 				</Form.Group>
 
 				<Form.Group controlId='password'>
-					<Form.Label>Password Address</Form.Label>
+					<Form.Label>Password</Form.Label>
 						<Form.Control type= 'password'
 										placeholder='Enter password'
 										value={password}
@@ -97,7 +97,7 @@ const RegisterScreen = ({ location, history }) => {
 
 			<Row className='py-3'>
 				<Col>
-					Have an Account?  {''}
+					Have an Account?  {' '}
 					<Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
 						Login!
 					</Link>

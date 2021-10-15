@@ -43,7 +43,7 @@ const destroyData = async () => {
 		await Product.deleteMany()
 		await User.deleteMany()
 
-		console.log('Data Destroyed!'.green.inverse)
+		console.log('Data Destroyed!'.red.inverse)
 		process.exit()
 	} catch(err) {
 		console.error(`${err}`.red.inverse)

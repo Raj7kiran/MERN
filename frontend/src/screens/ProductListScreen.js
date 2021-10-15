@@ -29,7 +29,7 @@ const ProductListScreen = ({ history, match }) => {
 	useEffect(() => {
 		dispatch({type: PRODUCT_CREATE_RESET})
 
-		if(!userInfo.isAdmin){
+		if(!userInfo || !userInfo.isAdmin){
 			history.push('/login')
 		}
 
@@ -67,7 +67,7 @@ const ProductListScreen = ({ history, match }) => {
 				{errorDelete && <Message variant='danger'>{errorDelete}</Message>}
 				{loadingCreate && <Loader />}
 				{errorCreate && <Message variant='danger'>{errorCreate}</Message>}
-				{loading ? <Loader /> : error ? <Message variant='flush'>{error}</Message>
+				{loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message>
 					: (
 						<>
 						<Table striped bordered hover responsive className='table-sm'>

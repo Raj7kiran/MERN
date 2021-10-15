@@ -66,7 +66,11 @@ const ProfileScreen = ({ location, history }) => {
 				{message && <Message variant='danger'>{message}</Message>}
 				{error && <Message variant='danger'>{error}</Message>}
 				{success && <Message variant='success'>Profile Updated</Message>}
-				{loading && <Loader />}
+				{loading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant='danger'>{error}</Message>
+        ) : (
 				<Form onSubmit ={submitHandler}>
 					<Form.Group controlId='name'>
 						<Form.Label>Name</Form.Label>
@@ -89,7 +93,7 @@ const ProfileScreen = ({ location, history }) => {
 					</Form.Group>
 
 					<Form.Group controlId='password'>
-						<Form.Label>Password Address</Form.Label>
+						<Form.Label>Password</Form.Label>
 							<Form.Control type= 'password'
 											placeholder='Enter password'
 											value={password}
@@ -112,11 +116,12 @@ const ProfileScreen = ({ location, history }) => {
 						Update
 					</Button>
 				</Form>
+				)}
 			</Col>
 			<Col md={9}>
-				<h2>Orders</h2>
+				<h2>My Orders</h2>
 				{loadingOrders ? <Loader /> 
-								: errorOrders? <Message variant='danger'>{error}</Message>
+								: errorOrders? <Message variant='danger'>{errorOrders}</Message>
 								: (
 									<Table striped bordered hover responsive className='table-sm' >
 										<thead>

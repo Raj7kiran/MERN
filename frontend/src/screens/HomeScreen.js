@@ -30,7 +30,7 @@ const HomeScreen = ({ match }) => {
 	return (
 			<>
 				<Meta />
-				{!keyword ? <ProductCarousel /> : <Link to='/' className='btn btn-dark'>Go Back</Link> }
+				{!keyword ? (<ProductCarousel />) : <Link to='/' className='btn btn-dark'>Go Back</Link> }
 				<h1>Latest Products</h1>
 				{ 	loading ? (<Loader />)
 					: error ? (<Message variant='danger'>{error}</Message>)

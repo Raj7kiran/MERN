@@ -6,11 +6,11 @@ import CheckoutSteps from '../components/CheckoutSteps'
 import { savePaymentMethod } from '../actions/cartActions'
 
 
-const PyamentScreen = ({history}) => {
+const PaymentScreen = ({history}) => {
 	const cart = useSelector(state => state.cart)
 	const { shippingAddress } = cart
 
-	if(!shippingAddress){
+	if(!shippingAddress.address){
 		history.push('/shipping');
 	}
 
@@ -34,11 +34,11 @@ const PyamentScreen = ({history}) => {
 					<Form.Label as='legend'>Select Payment Method</Form.Label>
 					<Col>
 						<Form.Check type='radio' label='PayPal or Credit Card' id='PayPal'
-									name='Payment Method' value='PayPal' checked
+									name='paymentMethod' value='PayPal' checked
 									onChange={(e) => setPaymentMethod(e.target.value) }>
 						</Form.Check>
 						<Form.Check type='radio' label='Stripe' id='Stripe'
-									name='Payment Method' value='Stripe' 
+									name='paymentMethod' value='Stripe' 
 									onChange={(e) => setPaymentMethod(e.target.value) }>
 						</Form.Check> 
 					</Col>
@@ -54,4 +54,4 @@ const PyamentScreen = ({history}) => {
 }
 
 
-export default PyamentScreen
+export default PaymentScreen

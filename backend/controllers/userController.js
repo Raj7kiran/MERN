@@ -2,6 +2,9 @@ import asyncHandler from 'express-async-handler'
 import generateToken from '../util/generateToken.js'
 import User from '../models/userModel.js'
 
+// @desc    Auth user & get token
+// @route   POST /api/users/login
+// @access  Public
 const authUser = asyncHandler(async(req, res) => {
 	const {email, password} = req.body
 
@@ -131,7 +134,7 @@ const deleteUser = asyncHandler(async (req,res) => {
 		await user.remove()
 		res.json({ message: 'User Removed' })
 	} else {
-		res.status(400)
+		res.status(404)
 		throw new Error('User not found')
 	}	
 
@@ -147,7 +150,7 @@ const getUserById = asyncHandler(async (req,res) => {
 	if(user){
 		res.json(user);
 	} else {
-		res.status(400)
+		res.status(404)
 		throw new Error('User not found')
 	}
 		

@@ -80,8 +80,9 @@ const OrderScreen = ( {match, history} ) => {
 		dispatch(deliverOrder(order))
 	}
 		
-	return loading ? (<Loader />) : error ?( <Message>{error}</Message> )
+	return loading ? (<Loader />) : error ?( <Message variant='danger'>{error}</Message> )
 			: (<>
+				<h1>Order {order._id}</h1>
 				<Row>
 				<Col md={8}>
 					<ListGroup variant='flush'>
@@ -91,7 +92,7 @@ const OrderScreen = ( {match, history} ) => {
 								<strong>Name: </strong> {order.user.name}
 							</p>
 							<p>
-								<strong>Email: </strong>
+								<strong>Email: </strong> {' '}
 								<a href={`mailto: ${order.user.email}`} >{order.user.email}</a>
 							</p>
 							<p>

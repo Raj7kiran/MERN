@@ -36,7 +36,7 @@ const getOrderById = asyncHandler(async(req,res) => {
 	if(order){
 		res.json(order)
 	} else{
-		res.status(400)
+		res.status(404)
 		throw new Error("Order not Found") 
 	}
 })
@@ -61,7 +61,7 @@ const updateOrderToPaid = asyncHandler(async(req,res) => {
 		res.json(updatedOrder)
 
 	} else{
-		res.status(400)
+		res.status(404)
 		throw new Error("Order not Found") 
 	}
 })
@@ -80,7 +80,7 @@ const updateOrderToDelivered = asyncHandler(async(req,res) => {
 		res.json(updatedOrder)
 
 	} else{
-		res.status(400)
+		res.status(404)
 		throw new Error("Order not Found") 
 	}
 })

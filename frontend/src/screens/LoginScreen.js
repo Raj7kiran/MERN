@@ -40,7 +40,7 @@ const LoginScreen = ({ location, history }) => {
 				<Form.Group controlId='email'>
 					<Form.Label>Email Address</Form.Label>
 						<Form.Control type= 'email'
-										placeholder='Enter mail'
+										placeholder='Enter email'
 										value={email}
 										onChange = {(e)=> setEmail(e.target.value)}
 						>
@@ -48,7 +48,7 @@ const LoginScreen = ({ location, history }) => {
 				</Form.Group>
 
 				<Form.Group controlId='password'>
-					<Form.Label>Password Address</Form.Label>
+					<Form.Label>Password</Form.Label>
 						<Form.Control type= 'password'
 										placeholder='Enter password'
 										value={password}
@@ -63,7 +63,7 @@ const LoginScreen = ({ location, history }) => {
 
 			<Row className='py-3'>
 				<Col>
-					New Customer?{''}
+					New Customer?{' '}
 					<Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
 						Register
 					</Link>

@@ -59,7 +59,7 @@ const UserEditScreen = ({ match, history }) => {
 					<Form onSubmit ={submitHandler}>
 						<Form.Group controlId='name'>
 							<Form.Label>Name</Form.Label>
-								<Form.Control type= 'text'
+								<Form.Control type= 'name'
 												placeholder='Enter name'
 												value={name}
 												onChange = {(e)=> setName(e.target.value)}
@@ -77,7 +77,7 @@ const UserEditScreen = ({ match, history }) => {
 								</Form.Control>
 						</Form.Group>
 
-						<Form.Group controlId='password'>
+						<Form.Group controlId='isadmin'>
 								<Form.Check 
 										type= 'checkbox'
 										label='Is Admin'
